@@ -1,0 +1,6 @@
+Upgrading a site from D7 to D8.
+
+1) Install a fresh copy of D8 (pre-install) on Staging.
+2) Run the initial configuration to create the database by going to the new site in a browser.
+3) After installation: go to the new D8 Staging site /admin/modules and put it side by side with the D7 Staging site /admin/modules. Every module that's enabled in the D7 needs to be enabled in the D8 (note: D8's initial setup has "Install" at the bottom of the list of modules, even though the Core/Experimental etc. modules are already installed and are just being enabled/activated.) Start by going down the list of D8's Core modules; enable any that are enabled on D7 (some D8 core pieces are exclusive to D8). ALSO: in D8's Experimental section, enable the 3 "Migrate" modules. Then go down the D7 list and install/enable everything you use on D7 (if available for D8.) Any modules that aren't enabled on both D7 AND D8 will be excluded from the Upgrade.
+4) 

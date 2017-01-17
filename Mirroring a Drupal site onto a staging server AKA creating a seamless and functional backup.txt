@@ -1,0 +1,10 @@
+Notes on creating a local (staging) copy of an existing (production) Drupal site.
+
+1) Create a database with the same name as the one you're copying.
+2) In PHPMySql (prod), go to the database you're copying and Export. 
+3) In PHPMySql (staging), go to the new database and Import.
+4) Copy all files from Prod to Staging.
+5) Change the name of the user that will access the database: in /sites/default/settings.php, change the username from the one that's used on Prod to 'root' (as long as 'root' is a user in your Staging db). I picked root because it doesn't have a password; so you can just erase the string given in settings.php for password.
+6) Open the new staging site. You may get bombarded with errors at the top of every page. If so, log in as Admin and go to Configuration > Media > File System. Make sure that the "Temporary directory" has the name of a directory in your localhost root directory. The default Temporary directory path in a Drupal install is /tmp. But in a WAMPServer installation, there's a folder in the root directory called "temp". So... just change the path in the Drupal configuration to '/temp'. Don't close File System yet.
+7) Remap where Drupal looks for private files. By default, the "Private file system path" is blank. Change it to [Public file system path]/private. Example: if Public path is sites/default/files, then make the private path sites/default/files/private. HOWEVER for the strongest security, the private directory should actually be private, i.e. located outside of the Drupal root folder (in public_html, www, etc.)
+8) On the Staging site: Configuration > Performance > Clear All Caches If any images aren't loading (i.e., images that are called by the CSS) then 
